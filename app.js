@@ -30,12 +30,12 @@ module.exports = function (journals) {
 	}
 
 	app.get('/journal/:number', routes.journal);
-//	app.put('/journal/:number/save', routes.saveJournal);
 	app.put('/journal/save', routes.saveJournal);
 
-//	app.get('/list', routes.list);
+	app.get('/list', routes.list);
 	app.get('/journals', routes.entriesByDate);
 
+	app.get('/doug', []);
 
 	return app;
 }

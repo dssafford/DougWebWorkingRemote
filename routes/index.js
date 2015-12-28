@@ -29,18 +29,19 @@ module.exports = function (journals) {
 //		if (typeof journals[number] === 'undefined') {
 //			res.status(404).json({status: 'error in saveJournal'});
 //		} else {
-			journals[number].triggerArrive();
-			var record = new journalSchema(
-				journals[number].getInformation()
-			);
+			// journals[number].triggerArrive();
+			// var record = new journalSchema(
+			// 	journals[number].getInformation()
+			// );
 
-			console.log("number=" + req.param('timestamp'));
+			console.log("directory=" + req.body.directory);
 
+			var record = new journalSchema;
 			record.timestamp = Date.now();
-			record.machine = "Shit";
-			record.directory = "directory";
-			record.project = "Crap Project";
-			record.comments = "Hey wow, right from routes";
+			record.machine = req.body.machine;
+			record.directory = req.body.directory;
+			record.project = req.body.project;
+			record.comments = req.body.comments;
 
 			record.save(function(err) {
 				if (err) {
@@ -82,6 +83,12 @@ module.exports = function (journals) {
 	// 	}
 	// };
 
+functions.shit = function (req, res) {
+	res.render('journalinput', {
+		title: "Eat fuck"
+	});
+
+};
 	functions.list = function (req, res) {
 		res.render('list', {
 			title: 'All Doug journals', 
